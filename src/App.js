@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Sobre from './componentes/sobre';
+import Main from './componentes/main';
+import Equipo from './componentes/equipo';
+import ListaProductos from './componentes/lista-productos';
+import BasicModal from './componentes/modal';
+import PokemonList from './componentes/pokemon-list';
+import RickAndMortyList from './componentes/rick-and-morty-list';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path='/sobre' element={ <Sobre nombre="ABC"/>  }  />
+        <Route path='/equipo' element={ <Equipo /> } />
+        <Route path='/lista' element= { <ListaProductos/> } />
+        <Route path='/modal' element= { <BasicModal/> } />
+        <Route path='/poke' element= { <PokemonList/>} />
+        <Route path='/rym' element= { <RickAndMortyList/>} />
+      </Routes>
+    </Router>
   );
 }
 
